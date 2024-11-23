@@ -17,10 +17,15 @@ class UserController extends Controller
         ],200);
     }
     function postArticle(Request $request){
-        // TODO: integrate the model
+        $article = Article::create([
+            "news_id"=> $request->news_id,
+            "user_id"=>$request->user_id,
+            "content"=> $request->content,
+        ]);
         return response()->json([
             "status"=> "success",
-            "message"=> "Posted article"
+            "message"=> "Posted article",
+            "data"=>$article
         ],200);
     }
 }
