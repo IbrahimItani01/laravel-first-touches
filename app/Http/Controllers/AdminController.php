@@ -19,8 +19,12 @@ function postNews(Request $request){
     ],200);
 }
 function editNews(Request $request){
-        // TODO: integrate model
-
+ $new = News::find( $request->id )->update([
+    "title"=> $request->title,
+    "content"=> $request->content,
+    'is_restricted'=> $request->is_requested,
+    'user_id'=> $request->user_id
+ ]);
     return response()->json([
         "status"=> "success",
         "message"=> "Edited message successfully"
