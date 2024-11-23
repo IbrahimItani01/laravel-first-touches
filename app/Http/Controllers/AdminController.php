@@ -39,7 +39,11 @@ function deleteNews($id){
     ],200);
 }
 function restrictNews(Request $request){
-    // TODO: integrate model
+    $new = News::find( $request->id )->update(
+        [
+            'is_restricted'=> $request->is_requested,
+        ]
+    );
     return response()->json([
         "status"=> "success",
         "message"=> "restricted articles for given ages"
