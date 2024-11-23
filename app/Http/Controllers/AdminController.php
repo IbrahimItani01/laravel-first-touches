@@ -38,10 +38,10 @@ function deleteNews($id){
         "message"=> "Deleted news successfully"
     ],200);
 }
-function restrictNews(Request $request){
-    $new = News::find( $request->id )->update(
+function restrictNews($id){
+    $new = News::find( $id )->update(
         [
-            'is_restricted'=> $request->is_requested,
+            'is_restricted'=> true,
         ]
     );
     return response()->json([
