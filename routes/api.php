@@ -12,3 +12,7 @@ Route::group(["prefix"=> "/admin"], function () {
     Route::put("/{id}",AdminController::class."restrictNews");
     Route::delete("/{id}",AdminController::class."deleteNews");
 });
+Route::group(["prefix"=> "/user"], function () {
+    Route::get("/{id}", UserController::class."requestNews");
+    Route::post("/", UserController::class."postArticle");
+});
