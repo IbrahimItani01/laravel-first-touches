@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
+use App\Models\News;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
     function requestNews($id){
-        // TODO: integrate the model
+        $news = News::find($id);
         return response()->json([
             "status"=>"success",
-            "message"=> "news retrieved"
+            "message"=> "news retrieved",
+            "data"=> $news
         ],200);
     }
     function postArticle(Request $request){
