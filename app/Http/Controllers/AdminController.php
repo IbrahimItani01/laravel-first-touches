@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\News;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -31,7 +32,7 @@ function editNews(Request $request){
     ],200);
 }
 function deleteNews($id){
-    // TODO: integrate model
+    $new = News::find(id: $id)->delete();
     return response()->json([
         "status"=> "success",
         "message"=> "Deleted news successfully"
